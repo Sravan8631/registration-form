@@ -1,8 +1,8 @@
 // Write your JS code here
-import {component} from 'react'
+import {Component} from 'react'
 import './index.css'
 
-class RegistrationForm extends component {
+class RegistrationForm extends Component {
   state = {
     firstNameInput: '',
     lastNameInput: '',
@@ -11,8 +11,8 @@ class RegistrationForm extends component {
     isFormSubmitted: false,
   }
 
-  onBlurLastName = () => {
-    const isValidLastName = this.isValidLastName()
+  validateLastName = () => {
+    const isValidLastName = this.isValidateLastName()
 
     this.setState({showLastNameError: !isValidLastName})
   }
@@ -44,14 +44,14 @@ class RegistrationForm extends component {
           value={lastNameInput}
           placeholder="Last name"
           onChange={this.onChangeLastName}
-          onBlur={this.onBlurLastName}
+          onBlur={this.validateLastName}
         />
       </div>
     )
   }
 
-  onBlurFirstName = () => {
-    const isValidFirstName = this.isValidFirstName()
+  validateFirstName = () => {
+    const isValidFirstName = this.isValidateFirstName()
 
     this.setState({showFirstNameError: !isValidFirstName})
   }
@@ -83,7 +83,7 @@ class RegistrationForm extends component {
           value={firstNameInput}
           placeholder="First name"
           onChange={this.onChangeFirstName}
-          onBlur={this.onBlurFirstName}
+          onBlur={this.validateFirstName}
         />
       </div>
     )
